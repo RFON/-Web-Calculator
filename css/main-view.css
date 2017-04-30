@@ -34,7 +34,7 @@
     box-sizing: border-box;
     width: 40%;
     height: 100%;
-    background-color: #CC9999;
+    background-color: #666699;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -43,10 +43,25 @@
     border-top: 2px solid #CC3399;*/
 }
 
-.operator-button {
-    width: 60%;
+.back-button {
+    box-sizing: border-box;
+    width: 20%;
     height: 100%;
     background-color: #666699;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.operator-container {
+    box-sizing: border-box;
+    width: 40%;
+    height: 100%;
+    background-color: #666699;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 .number-button {
@@ -61,16 +76,34 @@
     justify-content: center;
 }
 
-.number-button:hover {
-    background-color: #CCCCFF;
-}
-
-.number-button:active {
+.number-button:hover,
+.operator-button:hover,
+.back-button:hover {
     background-color: #e56e6e;
 }
 
-.number-button>p {
+.number-button:active,
+.operator-button:active,
+.back-button:active {
+    background-color: #CCCCFF;
+}
+
+.number-button>p,
+.operator-button>p,
+.back-button>p {
     color: #fff;
     font-size: 6rem;
     cursor: default;
+}
+
+.operator-button {
+    box-sizing: border-box;
+    width: 25%;
+    height: 33.333%;
+    /*border-right: 2px solid #CC3399;
+    border-bottom: 2px solid #CC3399;*/
+    background-color: #666699;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
