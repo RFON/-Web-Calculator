@@ -8,9 +8,9 @@
 .screen {
     width: 100%;
     height: 40%;
-    background-color: #666699;
+    background-color: #990033;
     box-sizing: border-box;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #CCCCCC;
     position: relative;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
 
 .screen>p {
     font-size: 8rem;
-    color: #fff;
+    color: #CCCCCC;
 }
 
 .operator {
@@ -34,7 +34,7 @@
     box-sizing: border-box;
     width: 40%;
     height: 100%;
-    background-color: #666699;
+    background-color: #333366;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -43,11 +43,20 @@
     border-top: 2px solid #CC3399;*/
 }
 
-.back-button {
+.back-clear-result-container {
     box-sizing: border-box;
     width: 20%;
     height: 100%;
-    background-color: #666699;
+    background-color: #333366;
+    display: flex;
+    flex-direction: column;
+}
+
+.back-button {
+    box-sizing: border-box;
+    width: 100%;
+    height: 33.333333%;
+    background-color: #333366;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +66,7 @@
     box-sizing: border-box;
     width: 40%;
     height: 100%;
-    background-color: #666699;
+    background-color: #333366;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -70,7 +79,7 @@
     height: 33.333%;
     /*border-right: 2px solid #CC3399;
     border-bottom: 2px solid #CC3399;*/
-    background-color: #666699;
+    background-color: #333366;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,13 +94,13 @@
 .number-button:active,
 .operator-button:active,
 .back-button:active {
-    background-color: #CCCCFF;
+    background-color: #CC0033;
 }
 
 .number-button>p,
 .operator-button>p,
 .back-button>p {
-    color: #fff;
+    color: #CCCCCC;
     font-size: 6rem;
     cursor: default;
 }
@@ -102,7 +111,7 @@
     height: 33.333%;
     /*border-right: 2px solid #CC3399;
     border-bottom: 2px solid #CC3399;*/
-    background-color: #666699;
+    background-color: #333366;
     display: flex;
     align-items: center;
     justify-content: center;
