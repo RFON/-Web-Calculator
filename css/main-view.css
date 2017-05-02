@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     height: 100%;
-    min-width: 800px;
+    min-width: 1000px;
     min-height: 400px;
 }
 
@@ -20,6 +20,7 @@
 .screen>p {
     font-size: 8rem;
     color: #CCCCCC;
+    user-select: text;
 }
 
 .operator {
@@ -85,16 +86,28 @@
     justify-content: center;
 }
 
-.number-button:hover,
-.operator-button:hover,
-.back-button:hover {
-    background-color: #e56e6e;
+.number-button:hover {
+    background-color: #FF9900;
 }
 
-.number-button:active,
-.operator-button:active,
+.operator-button:hover {
+    background-color: #339999;
+}
+
+.back-button:hover {
+    background-color: #CC3333;
+}
+
+.number-button:active {
+    background-color: #333333;
+}
+
+.operator-button:active {
+    background-color: #663333;
+}
+
 .back-button:active {
-    background-color: #CC0033;
+    background-color: #000000;
 }
 
 .number-button>p,
