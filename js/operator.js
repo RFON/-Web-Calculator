@@ -37,7 +37,7 @@ window.onload = function () {
             }
             //不能有多个小数点存在
             else if (num == '.' && (initial.split(".").length == 2 || initial == '')) {
-                return;
+                return
             } else {
                 if (operatorFlag == true) {
                     pNode[0].innerHTML = ""
@@ -85,9 +85,13 @@ window.onload = function () {
                 firstNumber = parseFloat(pNode[0].innerHTML)
             }
             doubleOperator = operator
+            console.log(doubleOperator)
             operatorFlag = true
+            if (operator != "=") {
+                resultConfirm = false
+                console.log(resultConfirm)
+            }
         } else {
-            console.log(secondNumber)
             if (secondNumber != "") {
                 if (pNode[0].innerHTML == "") {
                     return
@@ -118,9 +122,14 @@ window.onload = function () {
                         }
                     case "division":
                         {
-                            result = firstNumber / secondNumber
-                            pNode[0].innerHTML = result
-                            firstNumber = result
+                            if (secondNumber == 0) {
+                                pNode[0].innerHTML = "除数不能为0"
+                            }
+                            else {
+                                result = firstNumber / secondNumber
+                                pNode[0].innerHTML = result
+                                firstNumber = result
+                            }
                             break
                         }
                     case "mod":
@@ -134,13 +143,12 @@ window.onload = function () {
                 doubleOperator = operator
                 if (operator == "=") {
                     resultConfirm = true
+                    doubleOperator = ""
                 }
-                if (operator != "=") {
-                    resultConfirm = false
-                }
-                operatorFlag = true
                 secondNumber = ""
+                operatorFlag = true
             } else {
+                console.log("fuck")
                 doubleOperator = operator
                 return
             }
