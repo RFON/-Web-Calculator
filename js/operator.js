@@ -2,6 +2,7 @@ var numberButton = document.getElementsByClassName("number-button")
 var display = document.getElementById("screen")
 var pNode = display.getElementsByTagName("p")
 var oppositeButton = document.getElementById("opposite-button")
+var inputBox = document.getElementById("input-text")
 var oppositeFlag = false
 var opposite
 var firstNumber
@@ -12,6 +13,7 @@ var doubleOperator = ""
 var singleOperator = ""
 var operatorFlag = false
 var resultConfirm = false
+var textValue = ""
 window.onload = function () {
     //数字、小数点、正负号按钮添加点击事件
     for (let i = 0; i < numberButton.length; i++) {
@@ -19,18 +21,19 @@ window.onload = function () {
             var num = this.getElementsByTagName("p")[0].innerHTML
             var initial = pNode[0].innerHTML
             //首个数字为0的时候只能跟小数点
-            if (initial == "0" && num != ".") {
-                return
+            if (initial == "0" && num != "." && num != "±") {
+                pNode[0].innerHTML = num
             }
             //正负号切换
             else if (num == "±") {
+                if (initial == "0") {
+                    pNode[0].innerHTML = ""
+                }
                 oppositeFlag = !oppositeFlag
                 if (oppositeFlag == true) {
                     opposite = '-'
                     opposite += pNode[0].innerHTML
-                    console.log("-")
                 } else {
-                    console.log("+")
                     opposite = pNode[0].innerHTML.match(/([0-9]+)(.)?([0-9]*)/)[0]
                 }
                 pNode[0].innerHTML = opposite
@@ -47,7 +50,6 @@ window.onload = function () {
                 pNode[0].innerHTML += num
                 if (resultConfirm == true) {
                     doubleOperator = ""
-                    console.log("ok")
                 }
             }
         })
@@ -57,10 +59,13 @@ window.onload = function () {
         for (let i = 0; i < pNode[0].innerHTML.length - 1; i++) {
             backArray += pNode[0].innerHTML[i]
         }
+        if (backArray == "") {
+            backArray = "0"
+        }
         pNode[0].innerHTML = backArray
     })
     document.getElementById("clear").addEventListener('click', function () {
-        pNode[0].innerHTML = ""
+        pNode[0].innerHTML = "0"
         firstNumber = 0
         secondNumber = 0
         doubleOperator = ""
@@ -79,20 +84,19 @@ window.onload = function () {
             return
         }
         if (doubleOperator == "") {
-            if (pNode[0].innerHTML == "") {
+            if (pNode[0].innerHTML == "0") {
+                console.log("null")
                 return
             } else {
                 firstNumber = parseFloat(pNode[0].innerHTML)
             }
             doubleOperator = operator
-            console.log(doubleOperator)
             operatorFlag = true
-            if (operator != "=") {
+            if (operator !== "=") {
                 resultConfirm = false
-                console.log(resultConfirm)
             }
         } else {
-            if (secondNumber != "") {
+            if (secondNumber !== "") {
                 if (pNode[0].innerHTML == "") {
                     return
                 } else {
@@ -102,22 +106,31 @@ window.onload = function () {
                     case "addition":
                         {
                             result = firstNumber + secondNumber
-                            pNode[0].innerHTML = result
                             firstNumber = result
+                            if (inputBox.value != "") {
+                                result = cutPoint(result, inputBox.value)
+                            }
+                            pNode[0].innerHTML = result
                             break
                         }
                     case "subtraction":
                         {
                             result = firstNumber - secondNumber
-                            pNode[0].innerHTML = result
                             firstNumber = result
+                            if (inputBox.value != "") {
+                                result = cutPoint(result, inputBox.value)
+                            }
+                            pNode[0].innerHTML = result
                             break
                         }
                     case "multiplication":
                         {
                             result = firstNumber * secondNumber
-                            pNode[0].innerHTML = result
                             firstNumber = result
+                            if (inputBox.value != "") {
+                                result = cutPoint(result, inputBox.value)
+                            }
+                            pNode[0].innerHTML = result
                             break
                         }
                     case "division":
@@ -127,8 +140,11 @@ window.onload = function () {
                             }
                             else {
                                 result = firstNumber / secondNumber
-                                pNode[0].innerHTML = result
                                 firstNumber = result
+                                if (inputBox.value != "") {
+                                    result = cutPoint(result, inputBox.value)
+                                    pNode[0].innerHTML = result
+                                }
                             }
                             break
                         }
@@ -165,6 +181,9 @@ window.onload = function () {
                         pNode[0].innerHTML = "负数没有平方根"
                     } else {
                         result = Math.sqrt(pNode[0].innerHTML)
+                        if (inputBox.value != "") {
+                            result = cutPoint(result, inputBox.value)
+                        }
                         pNode[0].innerHTML = result
                     }
                     break
@@ -175,6 +194,9 @@ window.onload = function () {
                         return
                     }
                     result = Math.cbrt(pNode[0].innerHTML)
+                    if (inputBox.value != "") {
+                        result = cutPoint(result, inputBox.value)
+                    }
                     pNode[0].innerHTML = result
                     break
                 }
@@ -184,6 +206,9 @@ window.onload = function () {
                         return
                     }
                     result = Math.pow(pNode[0].innerHTML, 2)
+                    if (inputBox.value != "") {
+                        result = cutPoint(result, inputBox.value)
+                    }
                     pNode[0].innerHTML = result
                     break
                 }
@@ -200,6 +225,9 @@ window.onload = function () {
                     }
                     else {
                         result = factorial(pNode[0].innerHTML)
+                        if (inputBox.value != "") {
+                            result = cutPoint(result, inputBox.value)
+                        }
                         pNode[0].innerHTML = result
                     }
                     break
@@ -213,6 +241,9 @@ window.onload = function () {
                         pNode[0].innerHTML = "对数必须是正数"
                     } else {
                         result = Math.log2(pNode[0].innerHTML)
+                        if (inputBox.value != "") {
+                            result = cutPoint(result, inputBox.value)
+                        }
                         pNode[0].innerHTML = result
                     }
                     break
@@ -230,6 +261,10 @@ window.onload = function () {
             total = itself * factorial(itself - 1)
         }
         return total
+    }
+    var cutPoint = function (digital, cut) {
+        var afterCut = Math.round(digital * Math.pow(10, cut)) / Math.pow(10, cut)
+        return afterCut
     }
     document.getElementById("addition").addEventListener('click', function () {
         doubleOperation("addition")
@@ -263,5 +298,16 @@ window.onload = function () {
     })
     document.getElementById("log2").addEventListener('click', function () {
         singleOperation("log2")
+    })
+    inputBox.addEventListener('input', function () {
+        var reg = /^[1-9]\d*$|^0$/
+        this.value = this.value.replace(/\D/g, '')
+        this.value = this.value.replace(/\D/g, '')
+        if (reg.test(inputBox.value) == true) {
+            textValue = parseInt(inputBox.value)
+            if (textValue > 16) {
+                inputBox.value = 16
+            }
+        }
     })
 }

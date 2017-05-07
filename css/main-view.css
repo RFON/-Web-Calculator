@@ -129,3 +129,25 @@
     align-items: center;
     justify-content: center;
 }
+
+.text-button {
+    box-sizing: border-box;
+    width: 25%;
+    height: 33.333%;
+    /*border-right: 2px solid #CC3399;
+    border-bottom: 2px solid #CC3399;*/
+    background-color: #333366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-text{
+    width: 70%;
+    height: 50%;
+    border-radius: 5px;
+    outline: none;
+    font-size: 4rem;
+    padding: 5px;
+    text-align: center;
+}
