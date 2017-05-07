@@ -64,8 +64,8 @@ document.getElementById("back").addEventListener('click', function () {
 })
 document.getElementById("clear").addEventListener('click', function () {
     pNode[0].innerHTML = "0"
-    firstNumber = 0
-    secondNumber = 0
+    firstNumber = ""
+    secondNumber = ""
     doubleOperator = ""
     singleOperator = ""
     operatorFlag = false
@@ -86,17 +86,19 @@ var doubleOperation = function (operator) {
         return
     }
     if (doubleOperator == "") {
+        if (operator !== "=") {
+            resultConfirm = false
+        }
+        if(operator == "="){
+            return
+        }
         if (pNode[0].innerHTML == "0") {
-            console.log("null")
             return
         } else {
             firstNumber = parseFloat(pNode[0].innerHTML)
         }
         doubleOperator = operator
         operatorFlag = true
-        if (operator !== "=") {
-            resultConfirm = false
-        }
     } else {
         if (secondNumber !== "") {
             if (pNode[0].innerHTML == "") {
@@ -160,6 +162,7 @@ var doubleOperation = function (operator) {
             }
             doubleOperator = operator
             if (operator == "=") {
+                console.log("=")
                 resultConfirm = true
                 doubleOperator = ""
             }
