@@ -1,12 +1,11 @@
 .container {
     width: 100%;
     height: 100%;
-    
 }
 
 .screen {
     width: 100%;
-    height: 40%;
+    height: 30%;
     background-color: #990033;
     box-sizing: border-box;
     border-bottom: 2px solid #CCCCCC;
@@ -24,16 +23,17 @@
 
 .operator {
     width: 100%;
-    height: 60%;
+    height: 70%;
     background-color: #ccc;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
 }
 
 .number-container {
     box-sizing: border-box;
-    width: 40%;
-    height: 100%;
+    width: 50%;
+    height: 70%;
     background-color: #333366;
     display: flex;
     flex-direction: row;
@@ -45,17 +45,17 @@
 
 .back-clear-result-container {
     box-sizing: border-box;
-    width: 20%;
-    height: 100%;
+    width: 100%;
+    height: 30%;
     background-color: #333366;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .back-button {
     box-sizing: border-box;
-    width: 100%;
-    height: 33.333333%;
+    width: 33.3333333%;
+    height: 100%;
     background-color: #333366;
     display: flex;
     align-items: center;
@@ -64,8 +64,8 @@
 
 .operator-container {
     box-sizing: border-box;
-    width: 40%;
-    height: 100%;
+    width: 50%;
+    height: 70%;
     background-color: #333366;
     display: flex;
     flex-direction: row;
@@ -146,7 +146,7 @@
     height: 50%;
     border-radius: 5px;
     outline: none;
-    font-size: 4rem;
+    font-size: 2rem;
     padding: 5px;
     text-align: center;
 }
