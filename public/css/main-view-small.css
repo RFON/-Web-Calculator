@@ -1,0 +1,157 @@
+html{
+    font-size: 62.5%;
+}
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.screen {
+    width: 100%;
+    height: 30%;
+    background-color: #990033;
+    box-sizing: border-box;
+    border-bottom: 2px solid #CCCCCC;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.screen>p {
+    font-size: 4rem;
+    color: #CCCCCC;
+    user-select: text;
+}
+
+.operator {
+    width: 100%;
+    height: 70%;
+    background-color: #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.number-container {
+    box-sizing: border-box;
+    width: 50%;
+    height: 70%;
+    background-color: #333366;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    /*border-left: 2px solid #CC3399;
+    border-top: 2px solid #CC3399;*/
+}
+
+.back-clear-result-container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 30%;
+    background-color: #333366;
+    display: flex;
+    flex-direction: row;
+}
+
+.back-button {
+    box-sizing: border-box;
+    width: 33.3333333%;
+    height: 100%;
+    background-color: #333366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.operator-container {
+    box-sizing: border-box;
+    width: 50%;
+    height: 70%;
+    background-color: #333366;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.number-button {
+    box-sizing: border-box;
+    width: 25%;
+    height: 33.333%;
+    /*border-right: 2px solid #CC3399;
+    border-bottom: 2px solid #CC3399;*/
+    background-color: #333366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number-button:hover {
+    background-color: #FF9900;
+}
+
+.operator-button:hover {
+    background-color: #339999;
+}
+
+.back-button:hover {
+    background-color: #CC3333;
+}
+
+.number-button:active {
+    background-color: #333333;
+}
+
+.operator-button:active {
+    background-color: #663333;
+}
+
+.back-button:active {
+    background-color: #000000;
+}
+
+.number-button>p,
+.operator-button>p,
+.back-button>p {
+    color: #CCCCCC;
+    font-size: 3rem;
+    cursor: default;
+}
+
+.operator-button {
+    box-sizing: border-box;
+    width: 25%;
+    height: 33.333%;
+    /*border-right: 2px solid #CC3399;
+    border-bottom: 2px solid #CC3399;*/
+    background-color: #333366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-button {
+    box-sizing: border-box;
+    width: 25%;
+    height: 33.333%;
+    /*border-right: 2px solid #CC3399;
+    border-bottom: 2px solid #CC3399;*/
+    background-color: #333366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-text{
+    width: 70%;
+    height: 50%;
+    border-radius: 5px;
+    outline: none;
+    font-size: 2rem;
+    padding: 5px;
+    text-align: center;
+}
