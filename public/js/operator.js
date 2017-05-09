@@ -304,6 +304,10 @@ var operatorShow = function(operator){
                 operatorDisplay.getElementsByTagName("p")[0].innerHTML = "log2"
                 break
             }
+            case "=":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "="
+                break
+            }
         }
 }
 var factorial = function (itself) {
