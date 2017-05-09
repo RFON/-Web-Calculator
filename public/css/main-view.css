@@ -5,18 +5,36 @@
 }
 
 .screen {
-    width: 100%;
+    width: 80%;
     height: 40%;
     background-color: #990033;
     box-sizing: border-box;
-    border-bottom: 2px solid #CCCCCC;
-    position: relative;
+    border-bottom: 2px solid #CCCCCC;  
     display: flex;
     align-items: center;
     justify-content: center;
+    float: left;
 }
 
 .screen>p {
+    font-size: 8rem;
+    color: #CCCCCC;
+    user-select: text;
+}
+
+.operator-show{
+    width: 20%;
+    height: 40%;
+    background-color: #990033;
+    box-sizing: border-box;
+    border-bottom: 2px solid #CCCCCC;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+}
+
+.operator-show>p{
     font-size: 8rem;
     color: #CCCCCC;
     user-select: text;

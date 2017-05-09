@@ -3,6 +3,7 @@ var display = document.getElementById("screen")
 var pNode = display.getElementsByTagName("p")
 var oppositeButton = document.getElementById("opposite-button")
 var inputBox = document.getElementById("input-text")
+var operatorDisplay = document.getElementById("operator-show")
 var oppositeFlag = false
 var opposite
 var firstNumber
@@ -70,6 +71,8 @@ document.getElementById("clear").addEventListener('click', function () {
     singleOperator = ""
     operatorFlag = false
     oppositeFlag = false
+    operatorDisplay.getElementsByTagName("p")[0].innerHTML = ""
+
 })
 document.getElementById("result").addEventListener('click', function () {
     doubleOperation("=")
@@ -99,7 +102,9 @@ var doubleOperation = function (operator) {
         }
         doubleOperator = operator
         operatorFlag = true
+        operatorShow(operator)
     } else {
+        operatorShow(operator)
         if (secondNumber !== "") {
             if (pNode[0].innerHTML == "") {
                 return
@@ -176,6 +181,7 @@ var doubleOperation = function (operator) {
     }
 }
 var singleOperation = function (operator) {
+    operatorShow(operator)
     switch (operator) {
         case "sqrt":
             {
@@ -255,6 +261,50 @@ var singleOperation = function (operator) {
             }
     }
     operatorFlag = true
+}
+var operatorShow = function(operator){
+    switch(operator){
+            case "addition":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "+"
+                break
+            }
+            case "subtraction":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "-"
+                break
+            }
+            case "multiplication":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "*"
+                break
+            }
+            case "division":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "÷"
+                break
+            }
+            case "mod":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "%"
+                break
+            }
+            case "sqrt":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "√"
+                break
+            }
+            case "sqrt3":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "3√"
+                break
+            }
+            case "pow2":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "x²"
+                break
+            }
+            case "factorial":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "n!"
+                break
+            }
+            case "log2":{
+                operatorDisplay.getElementsByTagName("p")[0].innerHTML = "log2"
+                break
+            }
+        }
 }
 var factorial = function (itself) {
     var total
